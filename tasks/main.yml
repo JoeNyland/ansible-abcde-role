@@ -1,0 +1,14 @@
+---
+- name: Install abcde
+  tags: abcde
+  become: true
+  block:
+    - name: Install
+      apt:
+        name: abcde
+        update_cache: true
+    - name: Configure
+      copy:
+        dest: /etc/abcde.conf
+        src: abcde.conf
+        mode: '0644'
